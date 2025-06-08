@@ -354,6 +354,20 @@ export default function LandingPage() {
             Milhares de homens já descobriram o segredo. Chegou a sua vez.
           </p>
           
+          {/* E-book Cover Image */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <img 
+                src="/Cover.png" 
+                alt="Capa do E-book O Segredo da Conquista" 
+                className="w-48 md:w-56 h-auto rounded-lg shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+                NOVO!
+              </div>
+            </div>
+          </div>
+          
           <div className="flex flex-col md:grid md:grid-cols-2 gap-8 mb-8 items-center justify-center">
             {/* Oferta Básica */}
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white flex flex-col w-full max-w-sm mx-auto md:max-w-none">
