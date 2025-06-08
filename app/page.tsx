@@ -371,9 +371,9 @@ export default function LandingPage() {
             Milhares de homens já descobriram o segredo. Chegou a sua vez.
           </p>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 mb-8 items-center justify-center">
             {/* Oferta Básica */}
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white flex flex-col">
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white flex flex-col w-full max-w-sm mx-auto md:max-w-none">
               <CardHeader className="text-center">
                 <h3 className="text-2xl font-bold mb-2">OFERTA BÁSICA</h3>
                 <div className="text-4xl font-bold text-yellow-300 mb-4">R$ 10,00</div>
@@ -403,7 +403,7 @@ export default function LandingPage() {
             </Card>
 
             {/* Oferta Premium */}
-            <Card className="bg-gradient-to-b from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border-yellow-400/50 text-white relative flex flex-col">
+            <Card className="bg-gradient-to-b from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border-yellow-400/50 text-white relative flex flex-col w-full max-w-sm mx-auto md:max-w-none">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <Badge className="bg-yellow-400 text-yellow-900 px-4 py-2 text-sm font-bold">
                   🔥 MAIS POPULAR
