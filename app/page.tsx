@@ -372,27 +372,97 @@ export default function LandingPage() {
             Milhares de homens já descobriram o segredo. Chegou a sua vez.
           </p>
           
-          <div className="bg-white/10 p-8 rounded-lg mb-8 backdrop-blur-sm">
-            <div className="text-center mb-6">
-              <div className="text-lg opacity-75 line-through mb-2">De R$ 97,00</div>
-              <div className="text-4xl font-bold mb-2">Por apenas R$ 47,00</div>
-              <Badge className="bg-yellow-400 text-yellow-900 px-4 py-2">
-                Oferta por tempo limitado!
-              </Badge>
-            </div>
-            
-            <div className="flex justify-center w-full">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-12 py-6 text-xl font-bold mb-6 w-full max-w-md mx-auto">
-                <Download className="mr-3 h-6 w-6" />
-                QUERO COMEÇAR AGORA
-              </Button>
-            </div>
-            
-            <div className="text-sm opacity-75">
-              ✅ Acesso imediato após o pagamento<br />
-              ✅ Formato PDF para ler em qualquer dispositivo<br />
-              ✅ Garantia de 30 dias ou devolução integral
-            </div>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Oferta Básica */}
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+              <CardHeader className="text-center">
+                <h3 className="text-2xl font-bold mb-2">OFERTA BÁSICA</h3>
+                <div className="text-4xl font-bold text-yellow-300 mb-4">R$ 10,00</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span>E-book Completo com o Método Segredo da Conquista</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span>Acesso imediato</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span>Garantia de 7 dias</span>
+                  </div>
+                </div>
+                <div className="flex justify-center w-full pt-4">
+                  <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 w-full font-bold">
+                    <Download className="mr-2 h-5 w-5" />
+                    COMEÇAR AGORA
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Oferta Premium */}
+            <Card className="bg-gradient-to-b from-yellow-400/20 to-orange-500/20 backdrop-blur-sm border-yellow-400/50 text-white relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-yellow-400 text-yellow-900 px-4 py-2 text-sm font-bold">
+                  🔥 MAIS POPULAR
+                </Badge>
+              </div>
+              <CardHeader className="text-center pt-8">
+                <h3 className="text-2xl font-bold mb-2">OFERTA COMPLETA</h3>
+                <div className="text-lg opacity-75 line-through mb-1">De R$ 97,00</div>
+                <div className="text-4xl font-bold text-yellow-300 mb-4">R$ 27,90</div>
+                <Badge className="bg-red-500 text-white px-3 py-1 text-xs">
+                  Economia de R$ 69,10
+                </Badge>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span className="font-semibold">E-book Completo com o Método Segredo da Conquista</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span className="font-semibold">E-book - Impressione Gastando Pouco</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span className="font-semibold">E-book - Conquistar Mulher com Palavras</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span className="font-semibold">E-book - 10 Dicas para ter mais Matches no Tinder</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span className="font-semibold">E-book - Como Otimizar o Perfil no Tinder</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span>Acesso imediato</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">✅</span>
+                    <span>Garantia de 7 dias</span>
+                  </div>
+                </div>
+                <div className="flex justify-center w-full pt-4">
+                  <Button size="lg" className="bg-yellow-400 text-yellow-900 hover:bg-yellow-300 w-full font-bold text-lg py-6">
+                    <Download className="mr-2 h-5 w-5" />
+                    QUERO O PACOTE COMPLETO
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center text-sm opacity-75 mb-8">
+            ✅ Formato PDF para ler em qualquer dispositivo<br />
+            ✅ Suporte via WhatsApp<br />
+            ✅ Método testado por +1.000 homens
           </div>
           
           <Separator className="my-8 bg-white/20" />
