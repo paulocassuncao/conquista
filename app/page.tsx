@@ -270,24 +270,7 @@ export default function LandingPage() {
               </CardContent>
             </Card>
           </div>
-          
-          <div className="mt-12 bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">O que você NÃO vai encontrar aqui:</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="text-red-600">
-                <span className="text-3xl mb-2 block">🚫</span>
-                <p className="font-semibold">Cantadas prontas</p>
-              </div>
-              <div className="text-red-600">
-                <span className="text-3xl mb-2 block">🚫</span>
-                <p className="font-semibold">Técnicas de manipulação</p>
-              </div>
-              <div className="text-red-600">
-                <span className="text-3xl mb-2 block">🚫</span>
-                <p className="font-semibold">Promessas irreais</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
