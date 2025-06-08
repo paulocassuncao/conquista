@@ -354,44 +354,16 @@ export default function LandingPage() {
             Milhares de homens já descobriram o segredo. Chegou a sua vez.
           </p>
           
-          {/* E-book Mockup */}
+          {/* E-book Cover Image */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              {/* Book Container with 3D effect */}
-              <div className="relative group">
-                {/* Shadow */}
-                <div className="absolute top-2 left-3 w-48 md:w-56 h-64 md:h-72 bg-black/20 rounded-lg blur-sm transform rotate-2"></div>
-                
-                {/* Main Book */}
-                <div className="relative w-48 md:w-56 h-64 md:h-72 transform-gpu transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
-                  {/* Book Cover */}
-                  <div className="relative w-full h-full bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
-                    <img 
-                      src="/Cover.png" 
-                      alt="Capa do E-book O Segredo da Conquista" 
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                    {/* Reflection overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/10 rounded-lg"></div>
-                  </div>
-                  
-                  {/* Book spine effect */}
-                  <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-gray-600 to-gray-800 rounded-l-lg"></div>
-                  
-                  {/* Book pages effect */}
-                  <div className="absolute right-0 top-1 w-1 h-[calc(100%-8px)] bg-gray-300 rounded-r-sm"></div>
-                  <div className="absolute right-1 top-2 w-0.5 h-[calc(100%-16px)] bg-gray-400 rounded-r-sm"></div>
-                </div>
-              </div>
-              
-              {/* Badge */}
-              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse z-10">
+              <img 
+                src="/Cover.png" 
+                alt="Capa do E-book O Segredo da Conquista" 
+                className="w-48 md:w-56 h-auto rounded-lg shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse">
                 NOVO!
-              </div>
-              
-              {/* Download indicator */}
-              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-2 rounded-full shadow-lg z-10">
-                <Download className="w-4 h-4" />
               </div>
             </div>
           </div>
