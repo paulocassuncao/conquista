@@ -18,7 +18,7 @@ export default function LandingPage() {
             Conquiste uma mulher em até <span className="text-yellow-300">15 dias</span> mesmo sem Papo ou Beleza
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-            Utilize esse método validado com técnicas simples que realmente funcionam Apenas 10,00
+            Utilize esse método validado com técnicas simples que realmente funcionam por apenas R$ 10,00
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <ScrollToCTA size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg" />
@@ -379,18 +379,18 @@ export default function LandingPage() {
                 <div className="text-4xl font-bold text-yellow-300 mb-4">R$ 10,00</div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2 text-sm">
+                <div className="space-y-1 text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span>E-book Completo com o Método Segredo da Conquista</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="leading-tight">E-book Completo com o Método Segredo da Conquista</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span>Acesso imediato</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="leading-tight">Acesso imediato</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span>Garantia de 7 dias</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="leading-tight">Garantia de 7 dias</span>
                   </div>
                 </div>
                 <div className="flex justify-center w-full pt-4">
@@ -418,34 +418,34 @@ export default function LandingPage() {
                 </Badge>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2 text-sm">
+                <div className="space-y-1 text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="font-semibold">E-book Completo com o Método Segredo da Conquista</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="font-semibold leading-tight">E-book Completo com o Método Segredo da Conquista</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="font-semibold">E-book - Impressione Gastando Pouco</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="font-semibold leading-tight">E-book - Impressione Gastando Pouco</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="font-semibold">E-book - Conquistar Mulher com Palavras</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="font-semibold leading-tight">E-book - Conquistar Mulher com Palavras</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="font-semibold">E-book - 10 Dicas para ter mais Matches no Tinder</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="font-semibold leading-tight">E-book - 10 Dicas para ter mais Matches no Tinder</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="font-semibold">E-book - Como Otimizar o Perfil no Tinder</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="font-semibold leading-tight">E-book - Como Otimizar o Perfil no Tinder</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span>Acesso imediato</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="leading-tight">Acesso imediato</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✅</span>
-                    <span>Garantia de 7 dias</span>
+                    <span className="text-green-400 text-sm">✅</span>
+                    <span className="leading-tight">Garantia de 7 dias</span>
                   </div>
                 </div>
                 <div className="flex justify-center w-full pt-4">
