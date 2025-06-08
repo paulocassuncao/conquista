@@ -18,8 +18,7 @@ export default function LandingPage() {
             Conquiste uma mulher em até <span className="text-yellow-300">15 dias</span> mesmo sem Papo ou Beleza
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-            O único e-book que ensina homens a conquistar mulheres de forma natural, 
-            autêntica e respeitosa - sem truques baratos ou cantadas prontas
+            Utilize esse método validado com técnicas simples que realmente funcionam Apenas 10,00
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <ScrollToCTA size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg" />
