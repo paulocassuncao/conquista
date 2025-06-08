@@ -354,7 +354,7 @@ export default function LandingPage() {
               <Zap className="h-12 w-12 text-orange-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-gray-800">Garantia de Satisfação</h3>
               <p className="text-gray-700 text-lg">
-                Se você aplicar as técnicas e não ver resultados em 30 dias, 
+                Se você aplicar as técnicas e não ver resultados em 7 dias, 
                 devolvemos 100% do seu dinheiro. Sem perguntas.
               </p>
             </div>
