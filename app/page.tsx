@@ -354,16 +354,56 @@ export default function LandingPage() {
             Milhares de homens já descobriram o segredo. Chegou a sua vez.
           </p>
           
-          {/* E-book Cover Image */}
+          {/* E-book Mockup */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <img 
-                src="/Cover.png" 
-                alt="Capa do E-book O Segredo da Conquista" 
-                className="w-48 md:w-56 h-auto rounded-lg shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse">
-                NOVO!
+              {/* Mockup Container */}
+              <div className="relative group">
+                {/* Background Book (Shadow Effect) */}
+                <div className="absolute top-2 left-2 w-48 md:w-56 h-64 md:h-72 bg-black/20 rounded-lg blur-sm transform rotate-1"></div>
+                <div className="absolute top-1 left-1 w-48 md:w-56 h-64 md:h-72 bg-black/10 rounded-lg blur-sm transform rotate-0.5"></div>
+                
+                {/* Main Book */}
+                <div className="relative w-48 md:w-56 h-64 md:h-72 transform-gpu transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1">
+                  {/* Book Spine */}
+                  <div className="absolute left-0 top-0 w-3 h-full bg-gradient-to-b from-gray-800 to-gray-900 rounded-l-lg shadow-lg"></div>
+                  
+                  {/* Book Cover */}
+                  <div className="relative w-full h-full bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-gray-200">
+                    <img 
+                      src="/Cover.png" 
+                      alt="Capa do E-book O Segredo da Conquista" 
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                    
+                    {/* Glossy Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-lg"></div>
+                    
+                    {/* Light Reflection */}
+                    <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+                  </div>
+                  
+                  {/* Book Pages Effect */}
+                  <div className="absolute right-0 top-1 w-1 h-[calc(100%-8px)] bg-gradient-to-b from-gray-100 to-gray-300 rounded-r-sm"></div>
+                  <div className="absolute right-1 top-2 w-0.5 h-[calc(100%-16px)] bg-gradient-to-b from-gray-200 to-gray-400 rounded-r-sm"></div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500/20 rounded-full animate-bounce delay-100"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-500/20 rounded-full animate-bounce delay-300"></div>
+                <div className="absolute top-1/2 -right-6 w-4 h-4 bg-yellow-500/20 rounded-full animate-bounce delay-500"></div>
+              </div>
+              
+              {/* Badge */}
+              <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse z-10">
+                <span className="flex items-center gap-1">
+                  ⚡ NOVO!
+                </span>
+              </div>
+              
+              {/* Download Icon */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg animate-pulse">
+                <Download className="w-5 h-5" />
               </div>
             </div>
           </div>
