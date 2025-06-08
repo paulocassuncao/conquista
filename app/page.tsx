@@ -381,10 +381,12 @@ export default function LandingPage() {
               </Badge>
             </div>
             
-            <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-12 py-6 text-xl font-bold mb-6">
-              <Download className="mr-3 h-6 w-6" />
-              QUERO COMEÇAR AGORA
-            </Button>
+            <div className="flex justify-center w-full">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-12 py-6 text-xl font-bold mb-6 w-full max-w-md mx-auto">
+                <Download className="mr-3 h-6 w-6" />
+                QUERO COMEÇAR AGORA
+              </Button>
+            </div>
             
             <div className="text-sm opacity-75">
               ✅ Acesso imediato após o pagamento<br />
