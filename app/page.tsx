@@ -15,7 +15,7 @@ export default function LandingPage() {
             🔥 Método Comprovado
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Descubra o <span className="text-yellow-300">Segredo da Conquista</span>
+            Conquiste uma mulher em até <span className="text-yellow-300">15 dias</span> mesmo sem Papo ou Beleza
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
             O único e-book que ensina homens a conquistar mulheres de forma natural, 
