@@ -382,7 +382,7 @@ export default function LandingPage() {
                 <div className="space-y-1 text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
-                    <span className="leading-tight">E-book Completo com o Método Segredo da Conquista</span>
+                    <span className="leading-tight">E-book Método Segredo da Conquista</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
@@ -421,7 +421,7 @@ export default function LandingPage() {
                 <div className="space-y-1 text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
-                    <span className="font-semibold leading-tight">E-book Completo com o Método Segredo da Conquista</span>
+                    <span className="font-semibold leading-tight">E-book Método Segredo da Conquista</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
@@ -429,15 +429,15 @@ export default function LandingPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
-                    <span className="font-semibold leading-tight">E-book - Conquistar Mulher com Palavras</span>
+                    <span className="font-semibold leading-tight">E-book - Conquistar com Palavras</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
-                    <span className="font-semibold leading-tight">E-book - 10 Dicas para ter mais Matches no Tinder</span>
+                    <span className="font-semibold leading-tight">E-book - 10 Dicas para Matches no Tinder</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
-                    <span className="font-semibold leading-tight">E-book - Como Otimizar o Perfil no Tinder</span>
+                    <span className="font-semibold leading-tight">E-book - Otimizar Perfil no Tinder</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-400 text-sm">✅</span>
