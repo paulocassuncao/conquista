@@ -76,10 +76,10 @@ export default function LandingPage() {
       currency: "BRL"
     })
     
-    // TODO: Adicionar link do checkout da oferta premium quando disponível
-    // setTimeout(() => {
-    //   window.open("LINK_DO_CHECKOUT_PREMIUM", "_blank")
-    // }, 100)
+    // Redirecionar para checkout da oferta completa do Hotmart
+    setTimeout(() => {
+      window.open("https://pay.hotmart.com/D100199039R", "_blank")
+    }, 100) // Pequeno delay para garantir que o evento seja enviado
   }
 
   // Função para rastrear interesse (scroll para CTA)
