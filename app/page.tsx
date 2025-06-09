@@ -1,11 +1,86 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ScrollToCTA } from "@/components/scroll-to-cta"
 import { CheckCircle, Download, Heart, Shield, Star, Target, Users, Zap } from "lucide-react"
+import { useFacebookPixel } from "@/lib/facebook-pixel"
+import { useUTMify } from "@/lib/utmify"
+import { PixelTracker } from "@/components/pixel-tracker"
+import { UTMDebug } from "@/components/utm-debug"
+import { useEffect, useState } from "react"
 
 export default function LandingPage() {
+  const { trackViewContent, trackInitiateCheckout, trackLead, trackCustomEvent } = useFacebookPixel()
+  const { getAllUTMData, waitForUTMify, getTrafficSource } = useUTMify()
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Controlar montagem do componente
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  // Rastrear visualização da página de vendas com dados UTM
+  useEffect(() => {
+    if (!isMounted) return
+
+    const initializeTracking = async () => {
+      // Aguardar o UTMify carregar
+      await waitForUTMify(3000)
+      
+      // Obter dados UTM
+      const utmData = getAllUTMData()
+      const trafficSource = getTrafficSource(utmData)
+
+      // Rastrear visualização com dados UTM
+      trackViewContent("O Segredo da Conquista - E-book", 10, "BRL")
+      trackCustomEvent("LandingPageView", {
+        content_name: "O Segredo da Conquista",
+        content_category: "e-book",
+        value: 10,
+        currency: "BRL",
+        traffic_source: trafficSource
+      })
+
+      // Log para debugging
+      console.log('UTM Data captured:', utmData)
+      console.log('Traffic Source:', trafficSource)
+    }
+
+    initializeTracking()
+  }, [isMounted, trackViewContent, trackCustomEvent, getAllUTMData, waitForUTMify, getTrafficSource])
+
+  // Função para rastrear clique na oferta básica
+  const handleBasicOfferClick = () => {
+    trackInitiateCheckout(10, "BRL", "O Segredo da Conquista - Oferta Básica")
+    trackCustomEvent("ClickOfertaBasica", {
+      content_name: "O Segredo da Conquista - Oferta Básica",
+      value: 10,
+      currency: "BRL"
+    })
+  }
+
+  // Função para rastrear clique na oferta premium
+  const handlePremiumOfferClick = () => {
+    trackInitiateCheckout(27.90, "BRL", "O Segredo da Conquista - Oferta Completa")
+    trackCustomEvent("ClickOfertaCompleta", {
+      content_name: "O Segredo da Conquista - Oferta Completa",
+      value: 27.90,
+      currency: "BRL"
+    })
+  }
+
+  // Função para rastrear interesse (scroll para CTA)
+  const handleScrollToCTAClick = () => {
+    trackLead("O Segredo da Conquista")
+    trackCustomEvent("InteresseNoProduto", {
+      content_name: "O Segredo da Conquista",
+      action: "scroll_to_cta"
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
@@ -21,7 +96,7 @@ export default function LandingPage() {
             Utilize esse método validado com técnicas simples que realmente funcionam por apenas R$ 10,00
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <ScrollToCTA size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg" />
+            <ScrollToCTA size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg" onClick={handleScrollToCTAClick} />
             <div className="flex items-center gap-2 text-yellow-300">
               <Star className="h-5 w-5 fill-current" />
               <Star className="h-5 w-5 fill-current" />
@@ -35,7 +110,11 @@ export default function LandingPage() {
       </section>
 
       {/* Problem Section */}
-      <section className="px-4 py-16 bg-white">
+      <PixelTracker 
+        eventName="ViewProblemSection" 
+        eventData={{ section: "problems", content_name: "O Segredo da Conquista" }}
+      >
+        <section className="px-4 py-16 bg-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
             Você está cansado de...
@@ -72,6 +151,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      </PixelTracker>
 
       {/* Differentiation Section */}
       <section className="px-4 py-16 bg-gradient-to-r from-green-50 to-blue-50">
@@ -275,12 +355,16 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="px-4 py-16 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              O que outros homens estão dizendo
-            </h2>
+      <PixelTracker 
+        eventName="ViewTestimonials" 
+        eventData={{ section: "testimonials", content_name: "O Segredo da Conquista" }}
+      >
+        <section className="px-4 py-16 bg-white">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                O que outros homens estão dizendo
+              </h2>
             <div className="flex justify-center items-center gap-4 mb-8">
               <Users className="h-8 w-8 text-blue-600" />
               <span className="text-xl text-gray-600">+1.000 homens transformados</span>
@@ -343,6 +427,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      </PixelTracker>
 
       {/* CTA Section */}
       <section id="cta-section" className="px-4 py-16 bg-gradient-to-r from-orange-500 to-red-600 text-white">
@@ -392,7 +477,7 @@ export default function LandingPage() {
                 </div>
               </CardContent>
               <div className="p-6 pt-0">
-                <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 w-full font-bold">
+                <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 w-full font-bold" onClick={handleBasicOfferClick}>
                   <Download className="mr-2 h-5 w-5" />
                   COMEÇAR AGORA
                 </Button>
@@ -447,7 +532,7 @@ export default function LandingPage() {
                 </div>
               </CardContent>
               <div className="p-6 pt-0">
-                <Button size="lg" className="bg-yellow-400 text-yellow-900 hover:bg-yellow-300 w-full font-bold text-lg py-6">
+                <Button size="lg" className="bg-yellow-400 text-yellow-900 hover:bg-yellow-300 w-full font-bold text-lg py-6" onClick={handlePremiumOfferClick}>
                   <Download className="mr-2 h-5 w-5" />
                   QUERO O PACOTE COMPLETO
                 </Button>
@@ -496,6 +581,9 @@ export default function LandingPage() {
           </p>
         </div>
       </footer>
+
+      {/* UTM Debug Component (apenas em desenvolvimento) */}
+      <UTMDebug show={isMounted && process.env.NODE_ENV === 'development'} />
     </div>
   )
 }

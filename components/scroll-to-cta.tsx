@@ -8,6 +8,7 @@ interface ScrollToCTAProps {
   className?: string
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
   size?: "default" | "sm" | "lg" | "icon"
+  onClick?: () => void
 }
 
 const handleScrollToCTA = () => {
@@ -24,11 +25,19 @@ export const ScrollToCTA: React.FC<ScrollToCTAProps> = ({
   children, 
   className,
   variant = "default",
-  size = "default"
+  size = "default",
+  onClick
 }) => {
+  const handleClick = () => {
+    handleScrollToCTA()
+    if (onClick) {
+      onClick()
+    }
+  }
+
   return (
     <Button 
-      onClick={handleScrollToCTA}
+      onClick={handleClick}
       className={className}
       variant={variant}
       size={size}
