@@ -6,15 +6,19 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ScrollToCTA } from "@/components/scroll-to-cta"
 import { CheckCircle, Download, Heart, Shield, Star, Target, Users, Zap } from "lucide-react"
-import { useFacebookPixel } from "@/lib/facebook-pixel"
-import { useUTMify } from "@/lib/utmify"
-import { PixelTracker } from "@/components/pixel-tracker"
-import { UTMDebug } from "@/components/utm-debug"
+import { useGTM } from "@/lib/gtm"
+import { GTMTracker, ScrollTracker, InterestTracker } from "@/components/gtm-tracker"
 import { useEffect, useState } from "react"
 
 export default function LandingPage() {
-  const { trackViewContent, trackInitiateCheckout, trackLead, trackCustomEvent } = useFacebookPixel()
-  const { getAllUTMData, waitForUTMify, getTrafficSource } = useUTMify()
+  const { 
+    trackPageView, 
+    trackViewContent, 
+    trackBeginCheckout, 
+    trackLead, 
+    trackClick,
+    trackCustomEvent 
+  } = useGTM()
   const [isMounted, setIsMounted] = useState(false)
 
   // Controlar montagem do componente
@@ -22,73 +26,103 @@ export default function LandingPage() {
     setIsMounted(true)
   }, [])
 
-  // Rastrear visualização da página de vendas com dados UTM
+  // Rastrear visualização da página de vendas
   useEffect(() => {
     if (!isMounted) return
 
-    const initializeTracking = async () => {
-      // Aguardar o UTMify carregar
-      await waitForUTMify(3000)
-      
-      // Obter dados UTM
-      const utmData = getAllUTMData()
-      const trafficSource = getTrafficSource(utmData)
-
-      // Rastrear visualização com dados UTM
-      trackViewContent("O Segredo da Conquista - E-book", 10, "BRL")
-      trackCustomEvent("LandingPageView", {
+    // Rastrear page view
+    trackPageView()
+    
+    // Rastrear visualização do conteúdo
+    trackViewContent("O Segredo da Conquista - E-book", 10, "BRL")
+    
+    // Evento personalizado para landing page
+    trackCustomEvent(
+      "landing_page_view",
+      "engagement",
+      "page_view",
+      "conquista_ebook",
+      10,
+      { 
         content_name: "O Segredo da Conquista",
         content_category: "e-book",
-        value: 10,
-        currency: "BRL",
-        traffic_source: trafficSource
-      })
-
-      // Log para debugging
-      console.log('UTM Data captured:', utmData)
-      console.log('Traffic Source:', trafficSource)
-    }
-
-    initializeTracking()
-  }, [isMounted, trackViewContent, trackCustomEvent, getAllUTMData, waitForUTMify, getTrafficSource])
+        page_type: "landing_page"
+      }
+    )
+  }, [isMounted, trackPageView, trackViewContent, trackCustomEvent])
 
   // Função para rastrear clique na oferta básica
   const handleBasicOfferClick = () => {
-    trackInitiateCheckout(10, "BRL", "O Segredo da Conquista - Oferta Básica")
-    trackCustomEvent("ClickOfertaBasica", {
-      content_name: "O Segredo da Conquista - Oferta Básica",
-      value: 10,
-      currency: "BRL"
-    })
+    // Rastrear início do checkout
+    trackBeginCheckout("O Segredo da Conquista - Oferta Básica", 10, "BRL")
+    
+    // Rastrear clique específico
+    trackClick("Oferta Básica - R$ 10,00", "checkout_button", 10, "BRL")
+    
+    // Evento personalizado
+    trackCustomEvent(
+      "click_offer_basic",
+      "e-commerce",
+      "click_checkout",
+      "oferta_basica",
+      10,
+      {
+        offer_type: "basic",
+        product_name: "O Segredo da Conquista - Oferta Básica",
+        checkout_url: "https://pay.hotmart.com/B99891758K"
+      }
+    )
     
     // Redirecionar para checkout do Hotmart
     setTimeout(() => {
       window.open("https://pay.hotmart.com/B99891758K", "_blank")
-    }, 100) // Pequeno delay para garantir que o evento seja enviado
+    }, 100)
   }
 
   // Função para rastrear clique na oferta premium
   const handlePremiumOfferClick = () => {
-    trackInitiateCheckout(27.90, "BRL", "O Segredo da Conquista - Oferta Completa")
-    trackCustomEvent("ClickOfertaCompleta", {
-      content_name: "O Segredo da Conquista - Oferta Completa",
-      value: 27.90,
-      currency: "BRL"
-    })
+    // Rastrear início do checkout
+    trackBeginCheckout("O Segredo da Conquista - Oferta Completa", 27.90, "BRL")
+    
+    // Rastrear clique específico
+    trackClick("Oferta Premium - R$ 27,90", "checkout_button", 27.90, "BRL")
+    
+    // Evento personalizado
+    trackCustomEvent(
+      "click_offer_premium",
+      "e-commerce", 
+      "click_checkout",
+      "oferta_premium",
+      27.90,
+      {
+        offer_type: "premium",
+        product_name: "O Segredo da Conquista - Oferta Completa",
+        checkout_url: "https://pay.hotmart.com/D100199039R"
+      }
+    )
     
     // Redirecionar para checkout da oferta completa do Hotmart
     setTimeout(() => {
       window.open("https://pay.hotmart.com/D100199039R", "_blank")
-    }, 100) // Pequeno delay para garantir que o evento seja enviado
+    }, 100)
   }
 
   // Função para rastrear interesse (scroll para CTA)
   const handleScrollToCTAClick = () => {
-    trackLead("O Segredo da Conquista")
-    trackCustomEvent("InteresseNoProduto", {
-      content_name: "O Segredo da Conquista",
-      action: "scroll_to_cta"
-    })
+    trackLead("O Segredo da Conquista", "scroll_to_cta")
+    trackClick("Scroll to CTA", "cta_button")
+    
+    trackCustomEvent(
+      "show_interest",
+      "lead",
+      "scroll_to_cta",
+      "interesse_produto",
+      undefined,
+      {
+        content_name: "O Segredo da Conquista",
+        action_type: "scroll_button"
+      }
+    )
   }
 
   return (
@@ -120,10 +154,7 @@ export default function LandingPage() {
       </section>
 
       {/* Problem Section */}
-      <PixelTracker 
-        eventName="ViewProblemSection" 
-        eventData={{ section: "problems", content_name: "O Segredo da Conquista" }}
-      >
+      <ScrollTracker sectionName="problem_section" position={1}>
         <section className="px-4 py-16 bg-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
@@ -161,10 +192,11 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      </PixelTracker>
+      </ScrollTracker>
 
       {/* Differentiation Section */}
-      <section className="px-4 py-16 bg-gradient-to-r from-green-50 to-blue-50">
+      <ScrollTracker sectionName="differentiation_section" position={2}>
+        <section className="px-4 py-16 bg-gradient-to-r from-green-50 to-blue-50">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
@@ -214,6 +246,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      </ScrollTracker>
 
       {/* Benefits Section */}
       <section className="px-4 py-16 bg-white">
@@ -365,10 +398,7 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof Section */}
-      <PixelTracker 
-        eventName="ViewTestimonials" 
-        eventData={{ section: "testimonials", content_name: "O Segredo da Conquista" }}
-      >
+      <ScrollTracker sectionName="social_proof_section" position={3}>
         <section className="px-4 py-16 bg-white">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
@@ -437,7 +467,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      </PixelTracker>
+      </ScrollTracker>
 
       {/* CTA Section */}
       <section id="cta-section" className="px-4 py-16 bg-gradient-to-r from-orange-500 to-red-600 text-white">
@@ -591,9 +621,6 @@ export default function LandingPage() {
           </p>
         </div>
       </footer>
-
-      {/* UTM Debug Component (apenas em desenvolvimento) */}
-      <UTMDebug show={isMounted && process.env.NODE_ENV === 'development'} />
     </div>
   )
 }
