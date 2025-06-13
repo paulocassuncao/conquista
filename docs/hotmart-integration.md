@@ -7,17 +7,17 @@ A página de vendas "O Segredo da Conquista" está integrada com o Hotmart para 
 ## Links de Checkout
 
 ### Oferta Básica (R$ 10,00)
-- **Link**: [https://pay.hotmart.com/B99891758K](https://pay.hotmart.com/B99891758K)
+- **Link**: [https://pay.hotmart.com/B99891758K?checkoutMode=10](https://pay.hotmart.com/B99891758K?checkoutMode=10)
 - **Preço no Hotmart**: $2.00 USD (equivalente a ~R$ 10,00)
 - **Produto**: "O Segredo para Conquistar a mulher dos seus sonhos"
 - **Autor**: JPMarketing
 - **Status**: ✅ **Implementado**
 
 ### Oferta Premium (R$ 27,90)
-- **Link**: *Aguardando link do checkout premium*
+- **Link**: [https://pay.hotmart.com/D100199039R?checkoutMode=10](https://pay.hotmart.com/D100199039R?checkoutMode=10)
 - **Preço**: R$ 27,90
 - **Produto**: Pacote completo com 5 e-books
-- **Status**: ⏳ **Pendente implementação**
+- **Status**: ✅ **Implementado**
 
 ## Implementação Técnica
 
@@ -45,7 +45,7 @@ trackCustomEvent("ClickOfertaBasica", {
 ```javascript
 // Redirecionamento com delay para garantir envio dos eventos
 setTimeout(() => {
-  window.open("https://pay.hotmart.com/B99891758K", "_blank")
+  window.open("https://pay.hotmart.com/B99891758K?checkoutMode=10", "_blank")
 }, 100)
 ```
 
@@ -106,7 +106,7 @@ graph TD
 ## Hotmart - Informações do Produto
 
 ### Dados do Checkout (Oferta Básica)
-- **URL**: https://pay.hotmart.com/B99891758K
+- **URL**: https://pay.hotmart.com/B99891758K?checkoutMode=10
 - **Preço**: $2.00 USD
 - **Moeda**: USD (dólares americanos)
 - **Produto**: "O Segredo para Conquistar a mulher dos seus sonhos"

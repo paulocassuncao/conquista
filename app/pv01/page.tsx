@@ -69,13 +69,13 @@ export default function LandingPage() {
       {
         offer_type: "basic",
         product_name: "O Segredo da Conquista - Oferta Básica",
-        checkout_url: "https://pay.hotmart.com/B99891758K"
+        checkout_url: "https://pay.hotmart.com/B99891758K?checkoutMode=10"
       }
     )
     
     // Redirecionar para checkout do Hotmart
     setTimeout(() => {
-      window.open("https://pay.hotmart.com/B99891758K", "_blank")
+      window.open("https://pay.hotmart.com/B99891758K?checkoutMode=10", "_blank")
     }, 100)
   }
 
@@ -97,13 +97,13 @@ export default function LandingPage() {
       {
         offer_type: "premium",
         product_name: "O Segredo da Conquista - Oferta Completa",
-        checkout_url: "https://pay.hotmart.com/D100199039R"
+        checkout_url: "https://pay.hotmart.com/D100199039R?checkoutMode=10"
       }
     )
     
     // Redirecionar para checkout da oferta completa do Hotmart
     setTimeout(() => {
-      window.open("https://pay.hotmart.com/D100199039R", "_blank")
+      window.open("https://pay.hotmart.com/D100199039R?checkoutMode=10", "_blank")
     }, 100)
   }
 
