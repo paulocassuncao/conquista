@@ -2,13 +2,14 @@
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
 
 // Tipos para eventos do GTM
 export interface GTMEvent {
+  [key: string]: unknown;
   event: string;
   event_category?: string;
   event_action?: string;
@@ -19,7 +20,7 @@ export interface GTMEvent {
   content_type?: string;
   content_category?: string;
   content_ids?: string[];
-  custom_parameters?: Record<string, any>;
+  custom_parameters?: Record<string, unknown>;
 }
 
 // Tipos específicos para e-commerce
@@ -222,7 +223,7 @@ export const useGTM = () => {
     action: string,
     label?: string,
     value?: number,
-    customParams?: Record<string, any>
+    customParams?: Record<string, unknown>
   ) => {
     pushEvent({
       event: eventName,
@@ -235,7 +236,7 @@ export const useGTM = () => {
   };
 
   // Função para definir variáveis de usuário (User Properties)
-  const setUserProperties = (properties: Record<string, any>) => {
+  const setUserProperties = (properties: Record<string, unknown>) => {
     if (isClient) {
       initDataLayer();
       try {

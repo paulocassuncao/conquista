@@ -1,14 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ScrollToCTA } from "@/components/scroll-to-cta"
 import { CheckCircle, Download, Heart, Shield, Star, Target, Users, Zap } from "lucide-react"
 import { useGTM } from "@/lib/gtm"
-import { GTMTracker, ScrollTracker, InterestTracker } from "@/components/gtm-tracker"
+import { ScrollTracker } from "@/components/gtm-tracker"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function LandingPage() {
   const { 
@@ -165,7 +166,7 @@ export default function LandingPage() {
               <CardContent className="p-6">
                 <div className="text-red-600 mb-4">❌</div>
                 <h3 className="font-semibold mb-2 text-gray-800">Ser rejeitado constantemente</h3>
-                <p className="text-gray-600">Sentir aquele frio na barriga e ouvir "não" sempre que tenta se aproximar</p>
+                <p className="text-gray-600">Sentir aquele frio na barriga e ouvir &quot;não&quot; sempre que tenta se aproximar</p>
               </CardContent>
             </Card>
             <Card className="border-red-200 bg-red-50">
@@ -179,14 +180,14 @@ export default function LandingPage() {
               <CardContent className="p-6">
                 <div className="text-red-600 mb-4">❌</div>
                 <h3 className="font-semibold mb-2 text-gray-800">Insegurança e baixa autoestima</h3>
-                <p className="text-gray-600">Se sentir inferior e achar que não é "bom o suficiente" para ela</p>
+                <p className="text-gray-600">Se sentir inferior e achar que não é &quot;bom o suficiente&quot; para ela</p>
               </CardContent>
             </Card>
             <Card className="border-red-200 bg-red-50">
               <CardContent className="p-6">
                 <div className="text-red-600 mb-4">❌</div>
                 <h3 className="font-semibold mb-2 text-gray-800">Técnicas falsas que não funcionam</h3>
-                <p className="text-gray-600">Usar cantadas prontas, truques de "pickup artist" que só afastam as mulheres</p>
+                <p className="text-gray-600">Usar cantadas prontas, truques de &quot;pickup artist&quot; que só afastam as mulheres</p>
               </CardContent>
             </Card>
           </div>
@@ -266,7 +267,7 @@ export default function LandingPage() {
                 <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Perder o medo da rejeição</h3>
-                  <p className="text-gray-600">Aprenda a lidar com "não" de forma madura e usar isso como combustível para crescer</p>
+                  <p className="text-gray-600">Aprenda a lidar com &quot;não&quot; de forma madura e usar isso como combustível para crescer</p>
                 </div>
               </div>
               
@@ -420,9 +421,9 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Finalmente um método que funciona de verdade! Em 2 meses consegui me relacionar de forma muito mais natural. Obrigado!"
+                  &quot;Sou casado e minha esposa adorou ver como mudei. Agora sou muito mais confiante e nossa relação está incrível!&quot;
                 </p>
-                <div className="font-semibold text-gray-800">- Carlos, 28 anos</div>
+                <div className="font-semibold text-gray-800">- Marcus, 35 anos</div>
               </CardContent>
             </Card>
             
@@ -434,9 +435,9 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Minha autoconfiança aumentou muito. Agora consigo conversar com qualquer mulher sem nervosismo. Recomendo!"
+                  &quot;Finalmente um método que funciona de verdade! Em 2 meses consegui me relacionar de forma muito mais natural. Obrigado!&quot;
                 </p>
-                <div className="font-semibold text-gray-800">- Rafael, 32 anos</div>
+                <div className="font-semibold text-gray-800">- Carlos, 28 anos</div>
               </CardContent>
             </Card>
             
@@ -448,9 +449,9 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Era muito tímido, agora estou namorando uma pessoa incrível. Este e-book mudou minha vida!"
+                  &quot;Minha autoconfiança aumentou muito. Agora consigo conversar com qualquer mulher sem nervosismo. Recomendo!&quot;
                 </p>
-                <div className="font-semibold text-gray-800">- Bruno, 25 anos</div>
+                <div className="font-semibold text-gray-800">- Rafael, 32 anos</div>
               </CardContent>
             </Card>
           </div>
@@ -482,9 +483,11 @@ export default function LandingPage() {
           {/* E-book Cover Image */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <img 
+              <Image 
                 src="/Cover.png" 
                 alt="Capa do E-book O Segredo da Conquista" 
+                width={224}
+                height={280}
                 className="w-48 md:w-56 h-auto rounded-lg shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse">

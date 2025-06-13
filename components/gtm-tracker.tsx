@@ -5,7 +5,15 @@ import { useGTM } from '@/lib/gtm'
 
 interface GTMTrackerProps {
   eventName: string
-  eventData?: Record<string, any>
+  eventData?: {
+    position?: number
+    leadType?: string
+    category?: string
+    action?: string
+    label?: string
+    value?: number
+    customParams?: Record<string, unknown>
+  }
   children: React.ReactNode
   threshold?: number
   triggerOnce?: boolean
